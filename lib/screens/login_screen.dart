@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/widgets/custom_buttons.dart';
@@ -27,7 +29,12 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           CustomButton(
             text: 'Sign In',
-            onpressed: () {},
+            onpressed: () async {
+              bool res = await _authMethods.signInWithGoogle(context);
+              if (res) {
+                Navigator.pushNamed(context, 'home');
+              }
+            },
           ),
         ],
       ),
