@@ -17,15 +17,24 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,38 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDhvpDB8noqgvPe1lBHrNPrt3TnA5w6uJI',
-    appId: '1:290689363529:web:69bf126fed7a9526585998',
-    messagingSenderId: '290689363529',
-    projectId: 'zoom-clone-e2887',
-    authDomain: 'zoom-clone-e2887.firebaseapp.com',
-    storageBucket: 'zoom-clone-e2887.appspot.com',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBv-pjpOcOkN1ya822PgwbfDPF16RyBESI',
     appId: '1:290689363529:android:9bd64a99e5ff8aba585998',
     messagingSenderId: '290689363529',
     projectId: 'zoom-clone-e2887',
     storageBucket: 'zoom-clone-e2887.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDeZz3n24uyiuEKv1izuaBRElANvu2Tc2Q',
-    appId: '1:290689363529:ios:14cfcc580e731bbf585998',
-    messagingSenderId: '290689363529',
-    projectId: 'zoom-clone-e2887',
-    storageBucket: 'zoom-clone-e2887.appspot.com',
-    iosBundleId: 'com.example.zoomClone',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDeZz3n24uyiuEKv1izuaBRElANvu2Tc2Q',
-    appId: '1:290689363529:ios:aaa75e164cfa775a585998',
-    messagingSenderId: '290689363529',
-    projectId: 'zoom-clone-e2887',
-    storageBucket: 'zoom-clone-e2887.appspot.com',
-    iosBundleId: 'com.example.zoomClone.RunnerTests',
   );
 }
