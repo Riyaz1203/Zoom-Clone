@@ -15,7 +15,7 @@ class AuthMethods {
   Future<bool> signInWithGoogle(BuildContext context) async {
     bool res = false;
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final googleUser = await GoogleSignIn().signIn();
 
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;
